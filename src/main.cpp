@@ -1,10 +1,11 @@
-#include "int_array.hpp"
+#include "dynamic_array.hpp"
 
 #include <cstddef>
 #include <print>
+#include <string>
 
 int main() {
-    IntArray numbers{};
+    DynamicArray<int> numbers{};
 
     std::size_t last_capacity = numbers.capacity();
     for (int i = 0; i < 100; ++i) {
@@ -21,5 +22,15 @@ int main() {
     }
 
     std::println("sum {}", sum);
+
+    DynamicArray<std::string> words{};
+    words.push_back("mov");
+    words.push_back("add");
+    words.push_back("halt");
+
+    for (std::size_t i = 0; i < words.size(); ++i) {
+        std::println("{}", words[i]);
+    }
+
     return 0;
 }
